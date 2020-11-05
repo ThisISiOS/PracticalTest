@@ -11,8 +11,8 @@ import SDWebImage
 
 class PTNewsListCell: UITableViewCell {
     
+    @IBOutlet weak var newsAuthor: UILabel!
     @IBOutlet weak var newsDate: UILabel!
-    @IBOutlet weak var newsLink: UIButton!
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
     override func awakeFromNib() {
@@ -25,7 +25,7 @@ class PTNewsListCell: UITableViewCell {
         }
     }
     override func prepareForReuse() {
-        self.newsLink.setTitle("", for: .normal)
+        self.newsImage.image = nil
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -42,11 +42,11 @@ class PTNewsListCell: UITableViewCell {
             }
         }
         self.newsTitle.text = article?.title
-        self.newsLink.setTitle(article?.author, for: .normal)
+        self.newsAuthor.text = article?.author
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy h:mm"
         let date = dateFormatter.date(from: article?.publishedAt ?? "")
         self.newsDate.text =  self.article?.title?.formatDateToString(dateNew: date, format: "MM-dd-yyyy h:mm", isDate: true)
-
+        
     }
 }

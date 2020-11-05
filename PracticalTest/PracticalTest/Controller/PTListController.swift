@@ -24,14 +24,15 @@ class PTListController: UIViewController {
         self.title = Strings.appTitle
         self.getNews()
         self.setupCollectionview()
+        self.setupTableview()
     }
     func setupTableview ()
     {
         self.newsTableView.register(CellNib.NewsListCell, forCellReuseIdentifier: CellIdentifier.NewsListCell)
-        self.newsTableView.rowHeight = UITableView.automaticDimension
-        self.newsTableView.estimatedRowHeight = UITableView.automaticDimension
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
+        self.newsTableView.rowHeight = UITableView.automaticDimension
+        self.newsTableView.estimatedRowHeight = UITableView.automaticDimension
         self.newsTableView.reloadData()
     }
     func setupCollectionview()
@@ -44,9 +45,18 @@ class PTListController: UIViewController {
     @objc func newsLinkClicked(_ sender : UIButton)
     {
         
-         let vcLink = Controller.web
-                   vcLink.linkURL = self.news[sender.tag].url ?? ""
-                self.navigationController?.pushViewController(vcLink, animated: true)
+        let vcLink = Controller.web
+        vcLink.linkURL = self.news[sender.tag].url ?? ""
+        self.navigationController?.pushViewController(vcLink, animated: true)
+    }
+    @objc func newsTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let touch = tapGestureRecognizer.location(in: newsTableView)
+        if let indexPath = newsTableView.indexPathForRow(at: touch) {
+            let vcLink = Controller.web
+            vcLink.linkURL = self.news[indexPath.row].url ?? ""
+            self.navigationController?.pushViewController(vcLink, animated: true)
+        }
         
     }
 }
@@ -67,7 +77,7 @@ extension PTListController
                 let appDataRes = Mapper<PTListResponse>().map(JSON: response)
                 debugPrint(appDataRes!)
                 self.news = appDataRes?.articles ?? [PTArticles()]
-                self.setupTableview()
+                self.newsTableView.reloadData()
                 PTProgressHUDManager.showKRProgressHUD(false)
             }
         }) { (error) in
@@ -89,23 +99,24 @@ extension PTListController : UITableViewDelegate , UITableViewDataSource
         if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.NewsListCell, for: indexPath) as? PTNewsListCell
         {
             cell.article = news[indexPath.row]
-            cell.newsLink.tag = indexPath.row
-            cell.newsLink.addTarget(self,action: #selector(newsLinkClicked),for : .touchUpInside)
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(newsTapped(tapGestureRecognizer:)))
+            cell.newsAuthor.isUserInteractionEnabled = true
+            cell.newsAuthor.addGestureRecognizer(tapGestureRecognizer)
             
             return cell
         }
         return UITableViewCell()
     }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+    //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return UITableView.automaticDimension
+    //    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return UITableView.automaticDimension
+    //    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)    {
-
-    let vcDetail = Controller.newsDetail
-           vcDetail.article = self.news[indexPath.row]
+        
+        let vcDetail = Controller.newsDetail
+        vcDetail.article = self.news[indexPath.row]
         self.navigationController?.pushViewController(vcDetail, animated: true)
     }
 }
