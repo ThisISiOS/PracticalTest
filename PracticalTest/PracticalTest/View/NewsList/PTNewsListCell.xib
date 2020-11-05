@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PTNewsListCell" rowHeight="143" id="KGk-i7-Jjw" customClass="PTNewsListCell" customModule="PracticalTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="143"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="143"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mj6-Io-XkK">
+                        <rect key="frame" x="0.0" y="4" width="340" height="139"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ju-bu-x34">
+                                <rect key="frame" x="231.5" y="15" width="96.5" height="96.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Ju-bu-x34" secondAttribute="height" multiplier="1:1" id="8Bs-rN-jbx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kf-dr-WGa">
+                                <rect key="frame" x="8" y="15" width="223.5" height="64"/>
+                                <string key="text">Google is reedefining  Google is reedefiningGoogle is reedefiningGoogle is reedefiningGoogle is reedefiningGoogle is reedefining</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-M6-d2c">
+                                <rect key="frame" x="8" y="86" width="43" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.8040315509" green="0.36136001350000002" blue="0.35907158259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 SEP 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dO-VB-uHo">
+                                <rect key="frame" x="8" y="118" width="78" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" red="0.66797703500000005" green="0.67947286370000004" blue="0.70075219870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9kf-dr-WGa" firstAttribute="leading" secondItem="mj6-Io-XkK" secondAttribute="leading" constant="8" id="3TT-bs-40f"/>
+                            <constraint firstItem="5Ju-bu-x34" firstAttribute="leading" secondItem="9kf-dr-WGa" secondAttribute="trailing" id="98S-NE-Tjj"/>
+                            <constraint firstItem="5Ju-bu-x34" firstAttribute="width" secondItem="mj6-Io-XkK" secondAttribute="width" multiplier="0.283582" id="IXy-ut-2Wd"/>
+                            <constraint firstItem="9dO-VB-uHo" firstAttribute="top" secondItem="4oC-M6-d2c" secondAttribute="bottom" constant="3" id="LRg-pV-dKc"/>
+                            <constraint firstItem="5Ju-bu-x34" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4oC-M6-d2c" secondAttribute="trailing" constant="5" id="Skc-Wd-zby"/>
+                            <constraint firstItem="4oC-M6-d2c" firstAttribute="top" secondItem="9kf-dr-WGa" secondAttribute="bottom" constant="7" id="Ufl-He-n5A"/>
+                            <constraint firstItem="5Ju-bu-x34" firstAttribute="top" secondItem="mj6-Io-XkK" secondAttribute="top" constant="15" id="W58-Ho-qAg"/>
+                            <constraint firstItem="9dO-VB-uHo" firstAttribute="leading" secondItem="4oC-M6-d2c" secondAttribute="leading" id="Z3n-UV-JfK"/>
+                            <constraint firstItem="9kf-dr-WGa" firstAttribute="top" secondItem="mj6-Io-XkK" secondAttribute="top" constant="15" id="exN-Cg-caZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ju-bu-x34" secondAttribute="trailing" constant="12" id="lOc-iM-0Ih"/>
+                            <constraint firstItem="4oC-M6-d2c" firstAttribute="leading" secondItem="9kf-dr-WGa" secondAttribute="leading" id="pJU-82-eHW"/>
+                            <constraint firstAttribute="bottom" secondItem="4oC-M6-d2c" secondAttribute="bottom" constant="24" id="ymv-7z-IuW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mj6-Io-XkK" secondAttribute="bottom" id="d8U-gd-88i"/>
+                    <constraint firstItem="mj6-Io-XkK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eMO-bP-P97"/>
+                    <constraint firstItem="mj6-Io-XkK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="jPd-MH-BAF"/>
+                    <constraint firstAttribute="trailing" secondItem="mj6-Io-XkK" secondAttribute="trailing" id="zgN-3E-5yg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newsDate" destination="9dO-VB-uHo" id="YFG-VQ-mBA"/>
+                <outlet property="newsImage" destination="5Ju-bu-x34" id="SLy-c9-IWr"/>
+                <outlet property="newsLink" destination="4oC-M6-d2c" id="Nt1-4o-Rzm"/>
+                <outlet property="newsTitle" destination="9kf-dr-WGa" id="V63-kZ-WRt"/>
+            </connections>
+            <point key="canvasLocation" x="150.72463768115944" y="119.53125"/>
+        </tableViewCell>
+    </objects>
+</document>
