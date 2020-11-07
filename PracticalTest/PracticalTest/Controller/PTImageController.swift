@@ -16,7 +16,6 @@ class PTImageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageScrollview.delegate = self
-        
         newsImage.image = imageToSet
         self.setZoom()
         // Do any additional setup after loading the view.

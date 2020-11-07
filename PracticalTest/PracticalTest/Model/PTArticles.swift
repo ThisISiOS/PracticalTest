@@ -23,7 +23,7 @@ class PTArticles : PTModal {
     var urlToImage : String?
     var publishedAt : String?
     var content : String?
-   
+    
     
     required init(){
         super.init()
